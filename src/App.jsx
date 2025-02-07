@@ -1,24 +1,52 @@
-import Card from './components/Card/Card';
-import Profile from './components/Profile/Profile';
-import FriendList from './components/FriendList/FriendList';
-import TransactionHistory from './components/TransactionHistory/TransactionHistory';
-
-import userData from './userData.json';
-import friends from './friends.json';
-import transactions from './transactions.json';
+import {useEffect, useState} from 'react';
+import Description from './components/Description/Description';
+import Options from '../src/components/Options/Options';
+import Feedback from '../src/components/Feedback/Feedback';
+import Notification from '../src/components/Notification/Notification';
 
 function App() {
+  const descriptionData = {
+    title: 'Sip Happens Café',
+    text: 'Please leave your feedback about our service by selecting one of the options below.',
+  };
+
+  const {title, text} = descriptionData;
+
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
+
+  const updateFeedback = feedbackType => {
+    setFeedback(prevFeedback => ({
+      ...prevFeedback,
+      [feedbackType]: prevFeedback[feedbackType] + 1,
+    }));
+  };
+
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  const positiveFeedback =
+    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
+
+  const resetFeedback = () => {
+    setFeedback({good: 0, neutral: 0, bad: 0});
+  };
+
   return (
     <>
-      <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
-      <FriendList friends={friends} key={friends.id} />
-      <TransactionHistory items={transactions} />
+      <Description title={title} text={text} />
+      <Options updateFeedback={updateFeedback} resetFeedback={resetFeedback} />
+      {totalFeedback === 0 ? (
+        <Notification message="No feedback yet." />
+      ) : (
+        <Feedback
+          feedback={feedback}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      )}
     </>
   );
 }

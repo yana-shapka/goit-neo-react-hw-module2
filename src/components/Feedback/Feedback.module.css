@@ -1,0 +1,9 @@
+.feedbackWrapper {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 0;
+}

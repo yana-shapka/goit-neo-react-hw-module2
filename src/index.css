@@ -44,14 +44,6 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,16 +72,8 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  align-items: center;
-}
-
-ul {
-  display: flex;
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
   gap: 24px;
+  align-items: baseline;
 }
 
 p {
