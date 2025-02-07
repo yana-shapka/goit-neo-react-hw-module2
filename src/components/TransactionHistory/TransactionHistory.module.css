@@ -1,0 +1,29 @@
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.tableHeader {
+  background-color: black;
+  color: white;
+}
+
+.tableHeaderCell {
+  padding: 8px 16px 8px 16px;
+}
+
+.tableRow:nth-child(odd) {
+  background-color: white;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #d3d3d3;
+}
+
+.tableCell {
+  border: 1px solid black;
+  padding: 8px 16px 8px 16px;
+  text-align: center;
+  font-weight: 500;
+}

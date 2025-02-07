@@ -1,0 +1,31 @@
+.profileWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 64px 0px 64px;
+  margin-bottom: 24px;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.profileTextBold {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.profileTextGrey {
+  color: grey;
+  font-size: 24px;
+}
+
+.profileTextNormal {
+  font-size: 24px;
+}

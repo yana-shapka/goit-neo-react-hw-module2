@@ -1,0 +1,16 @@
+.status {
+  font-weight: bold;
+}
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}
+
+.friendAvatar {
+  height: 72px;
+  width: 72px;
+}

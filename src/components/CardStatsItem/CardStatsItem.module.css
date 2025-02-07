@@ -1,0 +1,11 @@
+.cardStatsItem {
+  border-top: 2px solid grey;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardStatsItem + .cardStatsItem {
+  border-left: 2px solid grey;
+}
