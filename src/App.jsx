@@ -21,15 +21,7 @@ function App() {
   const {good, neutral, bad} = feedback;
   const totalFeedback = good + neutral + bad;
   const positiveFeedback =
-    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
-
-  useEffect(() => {
-    const feedbackData = localStorage.getItem('feedback');
-
-    if (feedbackData) {
-      setFeedback(JSON.parse(feedbackData));
-    }
-  }, []);
+    totalFeedback > 0 ? Math.round((good / totalFeedback) * 100) : 0;
 
   useEffect(() => {
     localStorage.setItem('feedback', JSON.stringify(feedback));
@@ -49,7 +41,11 @@ function App() {
   return (
     <>
       <Description title={title} text={text} />
-      <Options updateFeedback={updateFeedback} resetFeedback={resetFeedback} />
+      <Options
+        updateFeedback={updateFeedback}
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+      />
       {totalFeedback === 0 ? (
         <Notification message="No feedback yet." />
       ) : (
